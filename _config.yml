@@ -1,15 +1,24 @@
-# Example Site settings
+ # Site settings
+  title: Tcyily's Blog
+  SEOTitle: 我的博客 | Tcyily's Blog
+# header-img: img/post-bg-desk.jpg
+  email: 暂无
+  description: ""
+  keyword: ""
+  url: "http://Tcyily.github.io"          # name改成你的ID
+  baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
+  github_repo: "https://github.com/tcyily/tcyily.github.io.git" # 用你的ID替换name
 
-#google_analytics: UA-NNNNNNNN-N
+  # Sidebar settings
+  sidebar: false                           # whether or not using Sidebar.
+  sidebar-about-description: "Sidebar~"
+  #sidebar-avatar: /img/avatar_binggan.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-#header_pages:
-#  - index.md
-#  - about.md
-
-#footer: 'follow us on <a href="https://twitter.com/">twitter</a>'
-
-#style: light # dark (default) or light
-#listen_for_clients_preferred_style: true # true or false (default)
-
-plugins:
-  - jekyll-seo-tag
+  # SNS settings
+  RSS: false
+  # weibo_username: 暂无
+  zhihu_username:     暂无
+  github_username:    暂无
+  facebook_username:  暂无
+  jianshu_username:   暂无
+  #twitter_username: 暂无
