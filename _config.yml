@@ -3,7 +3,7 @@
   SEOTitle: 我的博客 | Tcyily's Blog
 # header-img: img/post-bg-desk.jpg
   email: 暂无
-  description: ""
+  description: 不好好写游戏
   keyword: ""
   url: "http://Tcyily.github.io"          # name改成你的ID
   baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
@@ -19,7 +19,7 @@
   RSS: false
   # weibo_username: 暂无
   zhihu_username:     暂无
-  github_username:    暂无
+  github_username:    Tcyily
   facebook_username:  暂无
   jianshu_username:   暂无
   #twitter_username: 暂无
