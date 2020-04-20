@@ -4,6 +4,11 @@ layout: home
 permalink: /
 ---
 
-# Lorem ipsum
+# 懒得懒了就会学习
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+主要记录一些项目项目相关的问题
+偶尔写写CG的理解
+再偶尔写些小Shader
+尽量让游戏开发的后来人少走弯路子(顺便偷师各位大佬
+
+最后，希望能够一直开心地开发游戏，能够坚持维护这个博客。
