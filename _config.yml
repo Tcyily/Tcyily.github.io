@@ -14,27 +14,11 @@
   sidebar-about-description: "Sidebar~"
   #sidebar-avatar: /img/avatar_binggan.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-<<<<<<< HEAD
   # SNS settings
   RSS: false
   # weibo_username: 暂无
-  zhihu_username:     暂无
-  github_username:    暂无
-  facebook_username:  暂无
-  jianshu_username:   暂无
+  #zhihu_username:     暂无
+  #github_username:    暂无
+  #facebook_username:  暂无
+  #jianshu_username:   暂无
   #twitter_username: 暂无
-=======
-#header_pages:
-#  - index.md
-#  - about.md
-
-#footer: 'follow us on <a href="https://twitter.com/">twitter</a>'
-
-#style: light # dark (default) or light
-#listen_for_clients_preferred_style: true # true or false (default)
-
-plugins:
-  - jekyll-seo-tag
-
-theme: jekyll-theme-cayman
->>>>>>> 23f13cf8be3a5b59372b08224b3c1672d9805282
