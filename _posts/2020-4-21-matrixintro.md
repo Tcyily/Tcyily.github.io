@@ -1,6 +1,7 @@
 ---
 layout: post
-title: 矩阵
+title: matrix
+permalink: /
 ---
 
 # 线性代数-矩阵
