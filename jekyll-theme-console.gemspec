@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-console"
   spec.version       = "0.3.7"
   spec.authors       = ["b2a3e8"]
-  spec.email         = ["31370519+b2a3e8@users.noreply.github.com"]
+  spec.email         = ["tcyily.github.com"]
 
   spec.summary       = "A jekyll theme with inspiration from linux consoles for hackers, developers and script kiddies."
   spec.homepage      = "https://github.com/b2a3e8/jekyll-theme-console"
