@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-03-01 00:45:41
- * @LastEditTime: 2022-03-01 01:21:14
+ * @LastEditTime: 2022-03-09 11:37:27
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \tcyily.github.io\_posts\2022-2-28-RoomScene1-Fabric.md
@@ -34,6 +34,7 @@
     问题2.内部是如何实现的
         需要：高度图x1，法线贴图x1，漫反射颜色映射贴图x1
         步骤：
+            0. 在切线空间之中
             1. 0.0水平面为Plane的初始高度
             2. 对T0的地方进行高度图的采样，发现深度为0.55;
             3. 那么视线V还可以进行往前走，直到T1点
