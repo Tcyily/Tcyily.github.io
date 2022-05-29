@@ -1,8 +1,8 @@
 <!--
  * @Author: Tcyily
  * @Date: 2022-03-01 00:45:41
- * @LastEditTime: 2022-03-09 11:37:27
- * @LastEditors: Tcyily
+ * @LastEditTime: 2022-03-15 00:33:58
+ * @LastEditors: Please set LastEditors
  * @Description: 对于RoomScene1项目的地毯效果的学习笔记
  * @FilePath: \tcyily.github.io\_posts\2022-2-28-RoomScene1-Fabric.md
 -->
@@ -42,17 +42,17 @@
 ![原理](../_res/2022-2-28-RoomScene1-Fabric/Theory.jfif)  
 
 是不是很像体渲染？原有的Plane相当于一个成像平面。在于该平面接触之后，判断是否于体素有相交，没有则进行往前步进。
-<br/><br/><br/>
+<br/><br/>
 
 > 具体处理如下（颗粒度太小的step marching式的开销过大，故有各种特性方案
-### 4.1.1 特性来源-T1点如何求(陡峭视差映射：
+#### 4.1.1 特性来源-T1点如何求(陡峭视差映射：
      1. 划分多个成像平面
      2. 当前viewDir在当前成像平面的层深 在 深度图取得的H之上（即小于H），则与下一层的再次进行此检测
      3. 下图所示，最后交于0.375这个面。可得出xy所需进行的偏移
 ![陡峭视差映射](../_res/2022-2-28-RoomScene1-Fabric/ParallaxMapping00.webp)  
 <br/>
 
-### 4.1.2 特性来源-T1点如何求(视差遮蔽映射：
+#### 4.1.2 特性来源-T1点如何求(视差遮蔽映射：
 >基于陡峭视差映射的优化版本  
 
     0. 对陡峭视差映射的结果进行了插值处理
@@ -64,7 +64,7 @@
 ![视差遮蔽映射](../_res/2022-2-28-RoomScene1-Fabric/ParallaxMapping01.webp)  
 <br />
 
-### 4.1.3 拓展 POM 自阴影
+#### 4.1.3 拓展 POM 自阴影
 
     1. 在采样点 与 灯源 之间的层级进行判断，当此层位于深度图表示的深度里，则计算权重
     2. Tp 点向 L 方向进行步进，在Tp点之上共有层数n = 4
@@ -76,7 +76,28 @@
 
 ![视差遮蔽映射阴影](../_res/2022-2-28-RoomScene1-Fabric/POM_Shadow.webp)  
 
+----
 
+### 4.2 ShaderGraph节点 - Normal Blend
+法线混合，有Default 和 Reoriented 两种模式
+#### 4.2.1 Reoriented Normal Mapping
+
+>代码（说实话，看得懂，但是看不懂为什么要这么做doge..  
+
+    float3 n1 = tex2D(texBase,   uv).xyz*2 - 1;
+    float3 n2 = tex2D(texDetail, uv).xyz*2 - 1;
+
+    float3x3 nBasis = float3x3(
+        float3(n1.z, n1.y, -n1.x), // +90 degree rotation around y axis
+        float3(n1.x, n1.z, -n1.y), // -90 degree rotation around x axis
+        float3(n1.x, n1.y,  n1.z));
+
+    float3 r = normalize(n2.x*nBasis[0] + n2.y*nBasis[1] + n2.z*nBasis[2]);
+    return r*0.5 + 0.5;
+
+## 参考资料
 > [资料1： [译] GLSL 中的视差遮蔽映射（Parallax Occlusion Mapping in GLSL](https://segmentfault.com/a/1190000003920502)
+> [资料2： Normal Blend方法总结](https://zhuanlan.zhihu.com/p/364821684)
+
 
 
