@@ -1,6 +1,11 @@
 ---
 layout: post
-title: matrix
+title: "什么是矩阵"
+date:   2020-4-21
+tags: [MATH]
+comments: true
+author: Tcyily
+toc: true 
 ---
 
 # 线性代数-矩阵
