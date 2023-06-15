@@ -76,7 +76,8 @@
 
 ![视差遮蔽映射阴影](../_res/2022-2-28-RoomScene1-Fabric/POM_Shadow.webp)  
 
-
 > [资料1： [译] GLSL 中的视差遮蔽映射（Parallax Occlusion Mapping in GLSL](https://segmentfault.com/a/1190000003920502)
+
+
 
 
