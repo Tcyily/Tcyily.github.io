@@ -1,81 +1,16 @@
-# jekyll-theme-console
+这是一个可 fork 的博客模板仓库，帮助你快速搭建自己的博客，可以参考我博客的[这篇文章]( https://lemonchann.github.io/create_blog_with_github_pages/ )详细指导搭建步骤。
 
-A jekyll theme with inspiration from linux consoles for hackers, developers and script kiddies.
+### 文章版权
 
-<img src="https://raw.githubusercontent.com/b2a3e8/jekyll-theme-console/master/screenrec-dark.gif" width="550" title="Screenshot">
+`_posts` 文件夹内所有文章版权归我所有，转载需联系我获得授权。
 
-## Demo
+### 致谢
 
-[https://b2a3e8.github.io/jekyll-theme-console/](https://b2a3e8.github.io/jekyll-theme-console/)
+感谢Jekyll主题[LOFFER](https://fromendworld.github.io/LOFFER/)模提供了原始主题模板，我在其上进行的二次开发。
 
-source code: [https://github.com/b2a3e8/jekyll-theme-console/tree/gh-pages](https://github.com/b2a3e8/jekyll-theme-console/tree/gh-pages)
+如果搭建过程中有什么问题，也可以扫码添加我的个人技术公众号讨论交流。
 
+**这是一个专注编程知识和资源分享的公众号，包含各类编程学习路线，让你在编程路上少走弯路**
 
-## Installation
+![公众号二维码](https://github.com/lemonchann/images/raw/master/gzh/%E6%96%87%E6%9C%AB%E6%8E%A8%E5%B9%BF%E6%96%87%E6%A1%88.png)
 
-Add this line to your Jekyll site's `Gemfile`:
-
-```ruby
-gem "jekyll-theme-console"
-```
-
-And add this line to your Jekyll site's `_config.yml`:
-
-```yaml
-theme: jekyll-theme-console
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install jekyll-theme-console
-
-## Usage
-
-In addition to jekyll's default configuration options, you can provide:
-- `header_pages` to specify which pages should be displayed in navbar
-- `footer` string, which will be inserted on the end of the page (doesn't support markup, but html)
-- `google_analytics` tracking id (tracking will be enabled only in production environments)
-- `listen_for_clients_preferred_style` boolean, used to allow users to choose theme based on their preferences (mostly affected by OS dark or light theme, details see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
-
-```yaml
-header_pages:
-  - index.md
-  - about.md
-
-style: dark # dark (default) or light
-listen_for_clients_preferred_style: true # true or false (default)
-
-footer: 'follow us on <a href="https://twitter.com/xxx">twitter</a>'
-
-google_analytics: UA-NNNNNNNN-N
-```
-
-## Customization
-
-If you want to customize this theme, follow this steps:
-1. Fork this repository (you can use the fork as your own theme or directly as your website)
-2. Create or modify files in `_layouts` directory for html-based changes
-3. Create or modify files in `_sass` and `assets` for css-based changes
-   - You can change things which are used in light and dark theme (like font-size) in `_sass/base.scss`. You'll find style variables at the top.
-   - Style-specific definitions are in `_sass/_dark.scss` respectively in `_sass/_light.scss`. You can change things like background-color there.
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/b2a3e8/jekyll-theme-console. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `jekyll-theme-console.gemspec` accordingly.
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
