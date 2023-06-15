@@ -2,13 +2,14 @@
  * @Author: Tcyily 917125317@qq.com
  * @Date: 2022-02-15 17:39:52
  * @LastEditors: Tcyily 917125317@qq.com
- * @LastEditTime: 2023-06-15 17:46:28
+ * @LastEditTime: 2023-06-15 18:33:48
  * @FilePath: \Tcyily.github.io\_posts\2020-4-21-matrixintro.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 ---
 layout: post
 title: matrix
+tags: [MATH]
 ---
 
 # 线性代数-矩阵
