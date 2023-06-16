@@ -63,8 +63,8 @@ disqus: # fromendworld
 
 # Gitalk
 gitalk:
-  clientID: bd65d5c0df878155b7fa
-  clientSecret: d0220762c05c2d6b6f6152a0f0e4b6b090de9729
+  clientID: 7e0769d547af75b4c2b0
+  clientSecret: 46e1f6fb127da2dd58d4e7879eb5aecbad9124e7
   repo: tcyily.github.io
   owner: tcyily
 
