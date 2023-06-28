@@ -8,15 +8,13 @@ author: Tcyily
 toc: true 
 ---
 
-# 体渲染分享
-
-## 引入
-![](https://raw.githubusercontent.com/Tcyily/Tcyily.github.io/dev-MetaBall/_res/2021-12-26-RayMarching/_%E5%BC%95%E5%85%A5-%E8%9E%8D%E5%90%88%E6%95%88%E6%9E%9C.gif)(en-resource://database/629:1)
+# 引入
+![](https://raw.githubusercontent.com/Tcyily/Tcyily.github.io/dev-MetaBall/_res/2021-12-26-RayMarching/_%E5%BC%95%E5%85%A5-%E8%9E%8D%E5%90%88%E6%95%88%E6%9E%9C.gif)
 - 视频 [可以实现什么效果]
 
 --- 
 
-## 渲染管线
+# 渲染管线
 粗略地过一下每一个阶段里面做了什么，可以用来做什么。
 ![](https://raw.githubusercontent.com/Tcyily/Tcyily.github.io/dev-MetaBall/_res/2021-12-26-RayMarching/%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%B5%81%E7%A8%8B.jpg)
 蓝色这次分享不关注。
@@ -24,12 +22,12 @@ toc: true
 黄色是可配置的，无法完全自定义 ，但也可以修改暴露出来的参数。
 紫色则是完全固定的。
 
-### 应用阶段
+## 应用阶段
 >>平时开发之中使用的移动位置，IK动画，碰撞检测之类都处于这个。没有太多需要讲的地方。对之后的管线有影响的也会相应的改变之后使用的参数；比如对摄像机的操作。粗略地理解为在Unity普通开发之中对世界物体进行的操作也可以。
 >> 
 >>除此之外有个需要提到的点，就是应用阶段有对于不可视物体进行剔除。这和后面几何阶段说到的裁剪相同，这个一般是基于AABB包围盒级别的剔除
 
-### 几何阶段
+## 几何阶段
 ![](https://raw.githubusercontent.com/Tcyily/Tcyily.github.io/dev-MetaBall/_res/2021-12-26-RayMarching/%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5.jpg)
 >>顶点着色器：常用在对顶点数据的处理，比如转换到后序流程需要的坐标系之中，然后传递给下一流程
 >> 
@@ -43,7 +41,7 @@ toc: true
 >> 
 >>屏幕映射，NDC中的内容被映射到当前分辨率的屏幕2D平面之中。
 
-### 光栅化阶段
+## 光栅化阶段
 >> 
 >> 三角形遍历，三角形生成。固定阶段，将顶点按照选择的装配模式组合起来，并且计算出包含在内部的片元（理解为又可能成为最终呈现在屏幕的像素前身即可）
 >> 
@@ -53,7 +51,7 @@ toc: true
 
 --- 
 
-## 如何实现引入时的效果
+# 如何实现引入时的效果
 假设我们实现的是两个圆形的融合效果。那么只需要在一张Plane之中根据圆形的标准化方程来计算出每一个像素是否处于圆形之中。这个可以描述几何体边界的方程被称为SDF。
 
 --- 
@@ -103,21 +101,21 @@ function substract(sdf1, sdf2, x,  y){
 
 --- 
 
-## 效果移植到3D，如何实现
+# 3D效果如何实现
 如果需要实现3D效果，比如两个球体进行交互，那么需要怎么实现出这一个效果。
 
 --- 
 
-## 光栅化思路
+# 光栅化思路
 最开始的思路是通过对Unity之中原生的几何模型进行操作，Mesh修改以及颜色计算等。
 
-### 光栅化流程：
+## 光栅化流程：
 
 > ![](https://raw.githubusercontent.com/Tcyily/Tcyily.github.io/dev-MetaBall/_res/2021-12-26-RayMarching/rasterization.gif)
 > 
 > 按照渲染管线的流程来理解，光栅化的流程就是将同一份材质之中的片元先像动图之中映射到屏幕空间的2D平面之中，再对每一个片元进行相应的计算。这也导致了对环境的低敏感度。
 
-### 环境信息如何获取？
+## 环境信息如何获取？
 
 > 有一个例子就是：假设这个小球是金属材质。并且周边还有好几个不同颜色的小球。那么这个金属小球需要怎么处理才可以获取其他小球倒映在自身的效果呢？
 > 
@@ -127,12 +125,12 @@ function substract(sdf1, sdf2, x,  y){
 > 
 > 因此可以发现，如果不进行特殊处理，那么他渲染出来的效果往往也只是自身所收到的光照效果，无法获取到周围环境的变化。在光栅化的过程之中，每一个物体之中的像素都是仅关注自身所受到的直接影响
 
-### 遇到的问题
+## 遇到的问题
 
 > 但是两个物体产生互动时，他们各自的形变该如何计算，对形体以及颜色的改变又会有多少的贡献度来作为插值也没有头绪。
 
 
-## 降维
+# 降维
 
 > 为什么在2DPlane可以通过SDF实现？
 > 
@@ -142,11 +140,11 @@ function substract(sdf1, sdf2, x,  y){
 
 --- 
 
-## 光线追踪 思路
+# 光线追踪 思路
 
 > 如何获取三维世界所有像素？
 
-### 光线追踪流程：
+## 光线追踪流程：
 
 > ![](https://raw.githubusercontent.com/Tcyily/Tcyily.github.io/dev-MetaBall/_res/2021-12-26-RayMarching/RayTarce.gif)
 > 
@@ -158,7 +156,7 @@ function substract(sdf1, sdf2, x,  y){
 
 --- 
 
-## Raymarching
+# Raymarching
 
 > 不采用频繁而短的步长前进，而是将所有SDF封装为一个Map函数，传入当前点的位置，根据返回值，尽可能地最大限制的向前。当当前可前进的步长短到一定长度，则说明此时已于场景中物品进行了碰撞。
 > 
@@ -166,11 +164,11 @@ function substract(sdf1, sdf2, x,  y){
 
 ---
 
-## Unity实现
+# Unity实现
 借助了内置的Cube来作为光追的范围限制，可以减少计算的次数。在c#层之中将所有信息传递进shader之中，shader在片元着色器之中对每个像素进行Raymarching操作。
 ![](https://raw.githubusercontent.com/Tcyily/Tcyily.github.io/dev-MetaBall/_res/2021-12-26-RayMarching/SDF%E6%95%88%E6%9E%9C.gif)
 
-### SDF应用
+# SDF应用
 [Happy Jumping](https://www.shadertoy.com/view/3lsSzf)
 
 [体积云源码](https://www.shadertoy.com/view/XslGRr)
